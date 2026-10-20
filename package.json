@@ -1,0 +1,43 @@
+{
+  "name": "gladys-refoss",
+  "version": "0.1.0",
+  "private": true,
+  "description": "External Gladys Assistant integration for Refoss: smart plugs, relays, shutter modules and energy monitors, on the local network.",
+  "homepage": "https://github.com/William-De71/gladys-refoss",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/William-De71/gladys-refoss.git"
+  },
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@gladysassistant/integration-sdk": "^0.15.0",
+    "ws": "^8.22.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.12.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.10"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "gladys-assistant",
+    "gladys-assistant-integration",
+    "refoss",
+    "smart-plug",
+    "energy-monitor",
+    "home-automation"
+  ]
+}

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500" font-family="Inter, 'DejaVu Sans', Arial, sans-serif">
+  <title>Architecture of the Refoss integration for Gladys Assistant (illustration)</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#46505a"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="500" fill="#ffffff"/>
+  <text x="980" y="492" text-anchor="end" font-size="12" fill="#8a949e">illustration</text>
+
+  <!-- Gladys -->
+  <rect x="20" y="40" width="230" height="320" rx="14" fill="#eef4fb" stroke="#2979d6" stroke-width="2"/>
+  <text x="135" y="72" text-anchor="middle" font-size="20" font-weight="700" fill="#1d4f8c">Gladys Assistant</text>
+  <g font-size="14" fill="#24303c">
+    <rect x="38" y="92" width="194" height="38" rx="8" fill="#ffffff" stroke="#b9cde6"/>
+    <text x="135" y="116" text-anchor="middle">Switches, shutters, meters</text>
+    <rect x="38" y="140" width="194" height="38" rx="8" fill="#ffffff" stroke="#b9cde6"/>
+    <text x="135" y="164" text-anchor="middle">Energy monitoring</text>
+    <rect x="38" y="188" width="194" height="38" rx="8" fill="#ffffff" stroke="#b9cde6"/>
+    <text x="135" y="212" text-anchor="middle">mDNS discovery</text>
+    <rect x="38" y="236" width="194" height="38" rx="8" fill="#ffffff" stroke="#b9cde6"/>
+    <text x="135" y="260" text-anchor="middle">Scenes: triggers, actions</text>
+    <rect x="38" y="284" width="194" height="58" rx="8" fill="#ffffff" stroke="#b9cde6"/>
+    <text x="135" y="308" text-anchor="middle">Widgets: power overview,</text>
+    <text x="135" y="328" text-anchor="middle">one device and its curve</text>
+  </g>
+
+  <!-- Link Gladys / container -->
+  <line x1="256" y1="200" x2="354" y2="200" stroke="#46505a" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="305" y="172" text-anchor="middle" font-size="12" fill="#46505a">REST</text>
+  <text x="305" y="188" text-anchor="middle" font-size="10.5" fill="#46505a">/api/integration/v1</text>
+  <text x="305" y="222" text-anchor="middle" font-size="12" fill="#46505a">+ WebSocket</text>
+
+  <!-- Container -->
+  <rect x="360" y="40" width="280" height="320" rx="14" fill="#f4f6f8" stroke="#46505a" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="500" y="72" text-anchor="middle" font-size="20" font-weight="700" fill="#24303c">Integration container</text>
+  <g font-size="14" fill="#24303c">
+    <rect x="378" y="92" width="244" height="38" rx="8" fill="#ffffff" stroke="#c4ccd4"/>
+    <text x="500" y="116" text-anchor="middle">Node.js + Gladys SDK</text>
+    <rect x="378" y="140" width="244" height="38" rx="8" fill="#ffffff" stroke="#c4ccd4"/>
+    <text x="500" y="164" text-anchor="middle">src/app.js, src/hub.js</text>
+    <rect x="378" y="188" width="244" height="58" rx="8" fill="#ffffff" stroke="#c4ccd4"/>
+    <text x="500" y="212" text-anchor="middle">src/refoss/: RPC socket,</text>
+    <text x="500" y="232" text-anchor="middle">signed HTTP, UDP search</text>
+    <rect x="378" y="256" width="244" height="58" rx="8" fill="#ffffff" stroke="#c4ccd4"/>
+    <text x="500" y="280" text-anchor="middle">/data: devices seen,</text>
+    <text x="500" y="300" text-anchor="middle">energy indexes, timers</text>
+  </g>
+  <text x="500" y="340" text-anchor="middle" font-size="12" fill="#5f6b77">read-only rootfs, 256 MB, non-root</text>
+
+  <!-- Container / devices -->
+  <line x1="646" y1="140" x2="744" y2="120" stroke="#46505a" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="695" y="104" text-anchor="middle" font-size="12" fill="#46505a">ws://…/rpc</text>
+  <text x="695" y="156" text-anchor="middle" font-size="12" fill="#46505a">push</text>
+  <line x1="646" y1="270" x2="744" y2="290" stroke="#46505a" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="695" y="258" text-anchor="middle" font-size="12" fill="#46505a">HTTP + UDP</text>
+  <text x="695" y="306" text-anchor="middle" font-size="12" fill="#46505a">read on a timer</text>
+
+  <!-- Current models -->
+  <rect x="750" y="40" width="230" height="160" rx="14" fill="#f0f7f1" stroke="#2e8b57" stroke-width="2"/>
+  <text x="865" y="72" text-anchor="middle" font-size="18" font-weight="700" fill="#1f6b41">Current models</text>
+  <g font-size="13" fill="#24303c" text-anchor="middle">
+    <text x="865" y="98">P11S plug, R11, R21 relays</text>
+    <text x="865" y="118">EM01P, EM06P, EM16P</text>
+    <text x="865" y="148">JSON-RPC over WebSocket</text>
+    <text x="865" y="168">optional password (digest)</text>
+    <text x="865" y="188">found by mDNS</text>
+  </g>
+
+  <!-- First models -->
+  <rect x="750" y="220" width="230" height="140" rx="14" fill="#fff6e8" stroke="#d48a1c" stroke-width="2"/>
+  <text x="865" y="252" text-anchor="middle" font-size="18" font-weight="700" fill="#8a5a12">First models</text>
+  <g font-size="13" fill="#24303c" text-anchor="middle">
+    <text x="865" y="278">R10 relay, EM06, EM16</text>
+    <text x="865" y="306">signed HTTP messages</text>
+    <text x="865" y="326">UDP 9988 → 9989</text>
+    <text x="865" y="346">at the typed addresses</text>
+  </g>
+
+  <!-- mDNS -->
+  <path d="M135 366 L135 400 L992 400 L992 120 L984 120" fill="none" stroke="#8a949e" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="40" y="418" text-anchor="start" font-size="12" fill="#5f6b77">mDNS browse of _http._tcp sent by Gladys, instances named refoss… kept → address and MAC of each device</text>
+  <text x="40" y="440" text-anchor="start" font-size="12" fill="#5f6b77">Nothing leaves the local network: no account, no Refoss cloud.</text>
+</svg>

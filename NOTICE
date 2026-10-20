@@ -1,0 +1,23 @@
+gladys-refoss
+Copyright 2026 William-De71
+
+This product includes software developed by William-De71
+(https://github.com/William-De71/gladys-refoss), licensed under the
+Apache License, Version 2.0.
+
+The clients of the Refoss devices (src/refoss/) were written in JavaScript
+for this project, from the source code of the official Refoss libraries and
+integrations, all released under the MIT License by Refoss and their
+authors: aiorefoss (https://github.com/Refoss/aiorefoss: RPC frames over the
+WebSocket, digest authentication), refoss_rpc
+(https://github.com/Refoss/refoss_rpc: components, units, events), refoss_ha
+(https://github.com/ashionky/refoss_ha: UDP search, signed HTTP messages,
+ToggleX and ElectricityX), ioBroker.refoss
+(https://github.com/Refoss/ioBroker.refoss: clamp names) and the Home
+Assistant integration "refoss" (Apache-2.0,
+https://github.com/home-assistant/core). No code was copied.
+
+It uses the npm package "ws" (MIT, https://github.com/websockets/ws).
+
+Refoss is a trademark of its owner. This project is not affiliated with,
+endorsed or supported by Refoss.

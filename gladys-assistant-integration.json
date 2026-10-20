@@ -1,0 +1,756 @@
+{
+  "manifest_version": 1,
+  "type": "device",
+  "name": "Refoss",
+  "description": {
+    "en": "Refoss smart plugs, relays, shutters and energy monitors, on the local network.",
+    "fr": "Prises, relais, volets et compteurs d’énergie Refoss, sur le réseau local.",
+    "de": "Refoss-Steckdosen, Relais, Rollläden und Energiemonitore, im lokalen Netzwerk.",
+    "es": "Enchufes, relés, persianas y medidores de energía Refoss, en la red local."
+  },
+  "version": "0.1.0",
+  "docker_image": "ghcr.io/william-de71/gladys-refoss:0.1.0",
+  "gladys_version": ">=5.1.0",
+  "cover_image": "https://raw.githubusercontent.com/William-De71/gladys-refoss/main/cover.jpg",
+  "categories": ["energy", "lighting"],
+  "transports": ["local"],
+  "network_discovery": [
+    {
+      "type": "mdns",
+      "service": "_http._tcp"
+    }
+  ],
+  "config_schema": [
+    {
+      "key": "intro",
+      "type": "section",
+      "label": {
+        "en": "Your Refoss devices",
+        "fr": "Vos appareils Refoss",
+        "de": "Ihre Refoss-Geräte",
+        "es": "Sus dispositivos Refoss"
+      },
+      "description": {
+        "en": "Refoss makes Wi-Fi plugs (P11S), relays and shutter modules (R10, R11, R21) and energy monitors with current clamps (EM01P, EM06, EM06P, EM16, EM16P). Gladys talks to them directly on the local network, without the Refoss cloud: set them up in the Refoss app first, then the current models are found by themselves and every outlet, shutter and clamp appears in the Discover tab. Nothing leaves your network. Not affiliated with Refoss.",
+        "fr": "Refoss fabrique des prises Wi-Fi (P11S), des relais et modules de volet (R10, R11, R21) et des compteurs d’énergie à pinces (EM01P, EM06, EM06P, EM16, EM16P). Gladys leur parle directement sur le réseau local, sans le cloud Refoss : installez-les d’abord avec l’application Refoss, puis les modèles actuels sont trouvés tout seuls et chaque prise, volet et pince apparaît dans l’onglet Découverte. Rien ne sort de votre réseau. Sans lien avec Refoss.",
+        "de": "Refoss stellt WLAN-Steckdosen (P11S), Relais und Rollladenmodule (R10, R11, R21) sowie Energiemonitore mit Stromzangen (EM01P, EM06, EM06P, EM16, EM16P) her. Gladys spricht direkt im lokalen Netzwerk mit ihnen, ohne die Refoss-Cloud: Richten Sie sie zuerst in der Refoss-App ein, dann werden die aktuellen Modelle selbst gefunden und jede Steckdose, jeder Rollladen und jede Zange erscheint im Tab Erkennung. Nichts verlässt Ihr Netzwerk. Nicht mit Refoss verbunden.",
+        "es": "Refoss fabrica enchufes Wi-Fi (P11S), relés y módulos de persiana (R10, R11, R21) y medidores de energía con pinzas (EM01P, EM06, EM06P, EM16, EM16P). Gladys habla con ellos directamente en la red local, sin la nube de Refoss: configúrelos primero con la aplicación Refoss, después los modelos actuales se encuentran solos y cada enchufe, persiana y pinza aparece en la pestaña Descubrir. Nada sale de su red. Sin relación con Refoss."
+      },
+      "links": [
+        {
+          "url": "https://github.com/William-De71/gladys-refoss/blob/main/docs/en.md",
+          "label": {
+            "en": "Setup guide",
+            "fr": "Guide d’installation",
+            "de": "Installationsanleitung",
+            "es": "Guía de instalación"
+          }
+        },
+        {
+          "url": "https://refoss.net",
+          "label": {
+            "en": "Refoss website",
+            "fr": "Site de Refoss",
+            "de": "Refoss-Website",
+            "es": "Sitio de Refoss"
+          }
+        }
+      ]
+    },
+    {
+      "key": "hosts",
+      "type": "string",
+      "default": "",
+      "label": {
+        "en": "Addresses of the older models",
+        "fr": "Adresses des anciens modèles",
+        "de": "Adressen der älteren Modelle",
+        "es": "Direcciones de los modelos antiguos"
+      },
+      "placeholder": {
+        "en": "192.168.1.30, 192.168.1.31",
+        "fr": "192.168.1.30, 192.168.1.31",
+        "de": "192.168.1.30, 192.168.1.31",
+        "es": "192.168.1.30, 192.168.1.31"
+      },
+      "description": {
+        "en": "The IP addresses of your R10, EM06 and EM16, separated by commas: these first models cannot be found by Gladys. Give them a fixed address in your router. Also useful for a current model on another subnet.",
+        "fr": "Les adresses IP de vos R10, EM06 et EM16, séparées par des virgules : Gladys ne peut pas trouver ces premiers modèles toute seule. Donnez-leur une adresse fixe dans votre box. Utile aussi pour un modèle actuel sur un autre sous-réseau.",
+        "de": "Die IP-Adressen Ihrer R10, EM06 und EM16, durch Kommas getrennt: Diese ersten Modelle kann Gladys nicht selbst finden. Geben Sie ihnen im Router eine feste Adresse. Auch nützlich für ein aktuelles Modell in einem anderen Subnetz.",
+        "es": "Las direcciones IP de sus R10, EM06 y EM16, separadas por comas: Gladys no puede encontrar sola estos primeros modelos. Asígneles una dirección fija en su router. También sirve para un modelo actual en otra subred."
+      }
+    },
+    {
+      "key": "password",
+      "type": "secret",
+      "label": {
+        "en": "Device password",
+        "fr": "Mot de passe des appareils",
+        "de": "Gerätepasswort",
+        "es": "Contraseña de los dispositivos"
+      },
+      "description": {
+        "en": "Only if you protected your devices with a password in the Refoss app (the same for all of them). Leave empty otherwise.",
+        "fr": "Seulement si vous avez protégé vos appareils par un mot de passe dans l’application Refoss (le même pour tous). Sinon, laissez vide.",
+        "de": "Nur wenn Sie Ihre Geräte in der Refoss-App mit einem Passwort geschützt haben (für alle dasselbe). Sonst leer lassen.",
+        "es": "Solo si protegió sus dispositivos con una contraseña en la aplicación Refoss (la misma para todos). Si no, déjelo vacío."
+      }
+    },
+    {
+      "key": "refresh_interval",
+      "type": "select",
+      "default": "30",
+      "label": {
+        "en": "Measurement refresh",
+        "fr": "Rafraîchissement des mesures",
+        "de": "Aktualisierung der Messwerte",
+        "es": "Actualización de las medidas"
+      },
+      "description": {
+        "en": "How often power, voltage, current and energy are sent to Gladys (and how often the older models are read). On / off and shutters are always sent at once.",
+        "fr": "À quelle fréquence la puissance, la tension, l’intensité et l’énergie sont envoyées à Gladys (et les anciens modèles lus). Marche / arrêt et volets partent toujours tout de suite.",
+        "de": "Wie oft Leistung, Spannung, Stromstärke und Energie an Gladys gesendet werden (und die älteren Modelle gelesen werden). Ein / Aus und Rollläden gehen immer sofort raus.",
+        "es": "Con qué frecuencia se envían a Gladys la potencia, la tensión, la intensidad y la energía (y se leen los modelos antiguos). Encendido / apagado y persianas se envían siempre al instante."
+      },
+      "options": [
+        {
+          "value": "10",
+          "label": {
+            "en": "Every 10 seconds",
+            "fr": "Toutes les 10 secondes",
+            "de": "Alle 10 Sekunden",
+            "es": "Cada 10 segundos"
+          }
+        },
+        {
+          "value": "30",
+          "label": {
+            "en": "Every 30 seconds",
+            "fr": "Toutes les 30 secondes",
+            "de": "Alle 30 Sekunden",
+            "es": "Cada 30 segundos"
+          }
+        },
+        {
+          "value": "60",
+          "label": {
+            "en": "Every minute",
+            "fr": "Toutes les minutes",
+            "de": "Jede Minute",
+            "es": "Cada minuto"
+          }
+        }
+      ]
+    },
+    {
+      "key": "rescan_interval",
+      "type": "select",
+      "default": "60",
+      "label": {
+        "en": "Search again",
+        "fr": "Nouvelle recherche",
+        "de": "Erneut suchen",
+        "es": "Volver a buscar"
+      },
+      "description": {
+        "en": "How often the network is searched again (a new device, a device that changed its address).",
+        "fr": "À quelle fréquence le réseau est fouillé à nouveau (un nouvel appareil, un appareil qui a changé d’adresse).",
+        "de": "Wie oft das Netzwerk erneut durchsucht wird (ein neues Gerät, ein Gerät mit neuer Adresse).",
+        "es": "Con qué frecuencia se vuelve a buscar en la red (un dispositivo nuevo, un dispositivo que cambió de dirección)."
+      },
+      "options": [
+        {
+          "value": "0",
+          "label": {
+            "en": "Never (button only)",
+            "fr": "Jamais (bouton seulement)",
+            "de": "Nie (nur per Taste)",
+            "es": "Nunca (solo con el botón)"
+          }
+        },
+        {
+          "value": "15",
+          "label": {
+            "en": "Every 15 minutes",
+            "fr": "Toutes les 15 minutes",
+            "de": "Alle 15 Minuten",
+            "es": "Cada 15 minutos"
+          }
+        },
+        {
+          "value": "60",
+          "label": {
+            "en": "Every hour",
+            "fr": "Toutes les heures",
+            "de": "Jede Stunde",
+            "es": "Cada hora"
+          }
+        }
+      ]
+    },
+    {
+      "key": "language",
+      "type": "select",
+      "default": "en",
+      "label": {
+        "en": "Language of the device names",
+        "fr": "Langue des noms d’appareils",
+        "de": "Sprache der Gerätenamen",
+        "es": "Idioma de los nombres de dispositivos"
+      },
+      "description": {
+        "en": "Gladys does not tell integrations the language of its users: choose the one of the feature names and of the scene error messages.",
+        "fr": "Gladys ne transmet pas la langue de ses utilisateurs aux intégrations : choisissez celle des noms de fonctionnalités et des messages d’erreur des scènes.",
+        "de": "Gladys teilt Integrationen die Sprache ihrer Benutzer nicht mit: Wählen Sie die der Funktionsnamen und der Fehlermeldungen von Szenen.",
+        "es": "Gladys no comunica a las integraciones el idioma de sus usuarios: elija el de los nombres de funciones y de los mensajes de error de las escenas."
+      },
+      "options": [
+        {
+          "value": "en",
+          "label": {
+            "en": "English",
+            "fr": "Anglais",
+            "de": "Englisch",
+            "es": "Inglés"
+          }
+        },
+        {
+          "value": "fr",
+          "label": {
+            "en": "French",
+            "fr": "Français",
+            "de": "Französisch",
+            "es": "Francés"
+          }
+        },
+        {
+          "value": "de",
+          "label": {
+            "en": "German",
+            "fr": "Allemand",
+            "de": "Deutsch",
+            "es": "Alemán"
+          }
+        },
+        {
+          "value": "es",
+          "label": {
+            "en": "Spanish",
+            "fr": "Espagnol",
+            "de": "Spanisch",
+            "es": "Español"
+          }
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "key": "test_connection",
+      "timeout_seconds": 60,
+      "label": {
+        "en": "Search the devices",
+        "fr": "Rechercher les appareils",
+        "de": "Geräte suchen",
+        "es": "Buscar los dispositivos"
+      },
+      "description": {
+        "en": "Searches the local network and the addresses above, then lists every Refoss device found with its model, its firmware and its channels.",
+        "fr": "Cherche sur le réseau local et aux adresses ci-dessus, puis liste chaque appareil Refoss trouvé avec son modèle, son micrologiciel et ses canaux.",
+        "de": "Durchsucht das lokale Netzwerk und die Adressen oben und listet jedes gefundene Refoss-Gerät mit Modell, Firmware und Kanälen auf.",
+        "es": "Busca en la red local y en las direcciones de arriba, y lista cada dispositivo Refoss encontrado con su modelo, su firmware y sus canales."
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "key": "power",
+      "icon": "zap",
+      "label": {
+        "en": "Refoss power",
+        "fr": "Puissance Refoss",
+        "de": "Refoss-Leistung",
+        "es": "Potencia Refoss"
+      },
+      "description": {
+        "en": "Every outlet and clamp: live power, energy this month, on or off.",
+        "fr": "Chaque prise et pince : puissance en direct, énergie du mois, allumé ou éteint.",
+        "de": "Jede Steckdose und Zange: Leistung live, Energie des Monats, ein oder aus.",
+        "es": "Cada enchufe y pinza: potencia en directo, energía del mes, encendido o apagado."
+      }
+    },
+    {
+      "key": "device",
+      "icon": "activity",
+      "label": {
+        "en": "Refoss device",
+        "fr": "Appareil Refoss",
+        "de": "Refoss-Gerät",
+        "es": "Dispositivo Refoss"
+      },
+      "description": {
+        "en": "One outlet, clamp or shutter: power, today, this month, 24 h curve, buttons.",
+        "fr": "Une prise, pince ou un volet : puissance, aujourd’hui, ce mois, courbe 24 h, boutons.",
+        "de": "Eine Steckdose, Zange oder ein Rollladen: Leistung, heute, Monat, 24-h-Kurve, Tasten.",
+        "es": "Un enchufe, pinza o persiana: potencia, hoy, este mes, curva de 24 h, botones."
+      },
+      "settings": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "required": true,
+          "label": {
+            "en": "Outlet, clamp or shutter",
+            "fr": "Prise, pince ou volet",
+            "de": "Steckdose, Zange oder Rollladen",
+            "es": "Enchufe, pinza o persiana"
+          }
+        }
+      ]
+    }
+  ],
+  "scene_triggers": [
+    {
+      "key": "button_pressed",
+      "label": {
+        "en": "A button on a Refoss device is pressed",
+        "fr": "Un bouton d’un appareil Refoss est appuyé",
+        "de": "Ein Taster an einem Refoss-Gerät wird gedrückt",
+        "es": "Se pulsa un botón de un dispositivo Refoss"
+      },
+      "description": {
+        "en": "A push button wired on the input of an R11, R21 or P11S (set as “button” in the Refoss app): single, double, triple or long press.",
+        "fr": "Un bouton poussoir câblé sur l’entrée d’un R11, R21 ou P11S (réglée en « bouton » dans l’application Refoss) : appui simple, double, triple ou long.",
+        "de": "Ein an den Eingang eines R11, R21 oder P11S angeschlossener Taster (in der Refoss-App als „Taster“ eingestellt): einfach, doppelt, dreifach oder lang.",
+        "es": "Un pulsador conectado a la entrada de un R11, R21 o P11S (configurada como «botón» en la aplicación Refoss): simple, doble, triple o larga."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "required": false,
+          "label": {
+            "en": "Device (any if empty)",
+            "fr": "Appareil (tous si vide)",
+            "de": "Gerät (alle, wenn leer)",
+            "es": "Dispositivo (todos si está vacío)"
+          }
+        },
+        {
+          "key": "click",
+          "type": "select",
+          "label": {
+            "en": "Press",
+            "fr": "Appui",
+            "de": "Druck",
+            "es": "Pulsación"
+          },
+          "options": [
+            {
+              "value": "single",
+              "label": {
+                "en": "Single",
+                "fr": "Simple",
+                "de": "Einfach",
+                "es": "Simple"
+              }
+            },
+            {
+              "value": "double",
+              "label": {
+                "en": "Double",
+                "fr": "Double",
+                "de": "Doppelt",
+                "es": "Doble"
+              }
+            },
+            {
+              "value": "triple",
+              "label": {
+                "en": "Triple",
+                "fr": "Triple",
+                "de": "Dreifach",
+                "es": "Triple"
+              }
+            },
+            {
+              "value": "long",
+              "label": {
+                "en": "Long",
+                "fr": "Long",
+                "de": "Lang",
+                "es": "Larga"
+              }
+            }
+          ]
+        }
+      ],
+      "variables": [
+        {
+          "key": "device_name",
+          "type": "string",
+          "label": {
+            "en": "Device name",
+            "fr": "Nom de l’appareil",
+            "de": "Gerätename",
+            "es": "Nombre del dispositivo"
+          }
+        },
+        {
+          "key": "button",
+          "type": "number",
+          "label": {
+            "en": "Input number",
+            "fr": "Numéro d’entrée",
+            "de": "Eingangsnummer",
+            "es": "Número de entrada"
+          }
+        }
+      ]
+    },
+    {
+      "key": "protection_tripped",
+      "label": {
+        "en": "A Refoss protection trips",
+        "fr": "Une protection Refoss se déclenche",
+        "de": "Ein Refoss-Schutz löst aus",
+        "es": "Salta una protección Refoss"
+      },
+      "description": {
+        "en": "The device cut the power or warns: overpower, overvoltage, overcurrent, undervoltage or overheating.",
+        "fr": "L’appareil a coupé ou alerte : surpuissance, surtension, surintensité, sous-tension ou surchauffe.",
+        "de": "Das Gerät hat abgeschaltet oder warnt: Überlast, Überspannung, Überstrom, Unterspannung oder Überhitzung.",
+        "es": "El dispositivo cortó o avisa: sobrepotencia, sobretensión, sobrecorriente, subtensión o sobrecalentamiento."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "required": false,
+          "label": {
+            "en": "Device (any if empty)",
+            "fr": "Appareil (tous si vide)",
+            "de": "Gerät (alle, wenn leer)",
+            "es": "Dispositivo (todos si está vacío)"
+          }
+        },
+        {
+          "key": "protection",
+          "type": "select",
+          "label": {
+            "en": "Protection",
+            "fr": "Protection",
+            "de": "Schutz",
+            "es": "Protección"
+          },
+          "options": [
+            {
+              "value": "overpower",
+              "label": {
+                "en": "Overpower",
+                "fr": "Surpuissance",
+                "de": "Überlast",
+                "es": "Sobrepotencia"
+              }
+            },
+            {
+              "value": "overvoltage",
+              "label": {
+                "en": "Overvoltage",
+                "fr": "Surtension",
+                "de": "Überspannung",
+                "es": "Sobretensión"
+              }
+            },
+            {
+              "value": "overcurrent",
+              "label": {
+                "en": "Overcurrent",
+                "fr": "Surintensité",
+                "de": "Überstrom",
+                "es": "Sobrecorriente"
+              }
+            },
+            {
+              "value": "undervoltage",
+              "label": {
+                "en": "Undervoltage",
+                "fr": "Sous-tension",
+                "de": "Unterspannung",
+                "es": "Subtensión"
+              }
+            },
+            {
+              "value": "overtemp",
+              "label": {
+                "en": "Overheating",
+                "fr": "Surchauffe",
+                "de": "Überhitzung",
+                "es": "Sobrecalentamiento"
+              }
+            }
+          ]
+        }
+      ],
+      "variables": [
+        {
+          "key": "device_name",
+          "type": "string",
+          "label": {
+            "en": "Device name",
+            "fr": "Nom de l’appareil",
+            "de": "Gerätename",
+            "es": "Nombre del dispositivo"
+          }
+        }
+      ]
+    },
+    {
+      "key": "device_offline",
+      "label": {
+        "en": "A Refoss device is lost",
+        "fr": "Un appareil Refoss est perdu",
+        "de": "Ein Refoss-Gerät ist weg",
+        "es": "Se pierde un dispositivo Refoss"
+      },
+      "description": {
+        "en": "It has not answered for a minute (unplugged, Wi-Fi lost, power cut).",
+        "fr": "Il ne répond plus depuis une minute (débranché, Wi-Fi perdu, coupure de courant).",
+        "de": "Es antwortet seit einer Minute nicht (ausgesteckt, WLAN verloren, Stromausfall).",
+        "es": "No responde desde hace un minuto (desenchufado, Wi-Fi perdido, corte de luz)."
+      },
+      "variables": [
+        {
+          "key": "device_name",
+          "type": "string",
+          "label": {
+            "en": "Device name",
+            "fr": "Nom de l’appareil",
+            "de": "Gerätename",
+            "es": "Nombre del dispositivo"
+          }
+        },
+        {
+          "key": "model",
+          "type": "string",
+          "label": {
+            "en": "Model",
+            "fr": "Modèle",
+            "de": "Modell",
+            "es": "Modelo"
+          }
+        },
+        {
+          "key": "address",
+          "type": "string",
+          "label": {
+            "en": "IP address",
+            "fr": "Adresse IP",
+            "de": "IP-Adresse",
+            "es": "Dirección IP"
+          }
+        }
+      ]
+    },
+    {
+      "key": "device_online",
+      "label": {
+        "en": "A Refoss device is back",
+        "fr": "Un appareil Refoss est de retour",
+        "de": "Ein Refoss-Gerät ist zurück",
+        "es": "Vuelve un dispositivo Refoss"
+      },
+      "description": {
+        "en": "It answers again after having been lost.",
+        "fr": "Il répond de nouveau après avoir été perdu.",
+        "de": "Es antwortet wieder, nachdem es weg war.",
+        "es": "Vuelve a responder tras haberse perdido."
+      },
+      "variables": [
+        {
+          "key": "device_name",
+          "type": "string",
+          "label": {
+            "en": "Device name",
+            "fr": "Nom de l’appareil",
+            "de": "Gerätename",
+            "es": "Nombre del dispositivo"
+          }
+        },
+        {
+          "key": "model",
+          "type": "string",
+          "label": {
+            "en": "Model",
+            "fr": "Modèle",
+            "de": "Modell",
+            "es": "Modelo"
+          }
+        },
+        {
+          "key": "address",
+          "type": "string",
+          "label": {
+            "en": "IP address",
+            "fr": "Adresse IP",
+            "de": "IP-Adresse",
+            "es": "Dirección IP"
+          }
+        }
+      ]
+    }
+  ],
+  "scene_actions": [
+    {
+      "key": "switch_on_for",
+      "timeout_seconds": 15,
+      "label": {
+        "en": "Turn a Refoss outlet on for a while",
+        "fr": "Allumer une prise Refoss un moment",
+        "de": "Refoss-Steckdose eine Zeit lang einschalten",
+        "es": "Encender un enchufe Refoss un rato"
+      },
+      "description": {
+        "en": "On now, off after the duration (a pump, a towel rail). Run again, the delay starts over.",
+        "fr": "Allumée tout de suite, éteinte après la durée (une pompe, un sèche-serviettes). Relancée, la durée repart de zéro.",
+        "de": "Sofort ein, nach der Dauer aus (eine Pumpe, ein Handtuchheizkörper). Erneut ausgeführt, beginnt die Dauer neu.",
+        "es": "Encendido ahora, apagado tras la duración (una bomba, un toallero). Si se vuelve a ejecutar, el plazo empieza de nuevo."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "required": true,
+          "label": {
+            "en": "Outlet or relay",
+            "fr": "Prise ou relais",
+            "de": "Steckdose oder Relais",
+            "es": "Enchufe o relé"
+          }
+        },
+        {
+          "key": "minutes",
+          "type": "number",
+          "required": true,
+          "default": 15,
+          "min": 1,
+          "max": 1440,
+          "label": {
+            "en": "Duration (minutes)",
+            "fr": "Durée (minutes)",
+            "de": "Dauer (Minuten)",
+            "es": "Duración (minutos)"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "key": "off_at",
+          "type": "string",
+          "label": {
+            "en": "Off at (ISO date)",
+            "fr": "Extinction à (date ISO)",
+            "de": "Aus um (ISO-Datum)",
+            "es": "Apagado a las (fecha ISO)"
+          }
+        }
+      ]
+    },
+    {
+      "key": "read_energy",
+      "timeout_seconds": 15,
+      "label": {
+        "en": "Read the energy of a Refoss device",
+        "fr": "Lire l’énergie d’un appareil Refoss",
+        "de": "Energie eines Refoss-Geräts lesen",
+        "es": "Leer la energía de un dispositivo Refoss"
+      },
+      "description": {
+        "en": "The counters of the device, for a message or a condition: power now, today, this week, this month, returned.",
+        "fr": "Les compteurs de l’appareil, pour un message ou une condition : puissance actuelle, aujourd’hui, cette semaine, ce mois, renvoyé.",
+        "de": "Die Zähler des Geräts, für eine Nachricht oder Bedingung: Leistung jetzt, heute, diese Woche, diesen Monat, zurückgespeist.",
+        "es": "Los contadores del dispositivo, para un mensaje o una condición: potencia ahora, hoy, esta semana, este mes, devuelta."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "required": true,
+          "label": {
+            "en": "Outlet or clamp",
+            "fr": "Prise ou pince",
+            "de": "Steckdose oder Zange",
+            "es": "Enchufe o pinza"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "key": "power_w",
+          "type": "number",
+          "label": {
+            "en": "Power now (W)",
+            "fr": "Puissance actuelle (W)",
+            "de": "Leistung jetzt (W)",
+            "es": "Potencia ahora (W)"
+          }
+        },
+        {
+          "key": "today_kwh",
+          "type": "number",
+          "label": {
+            "en": "Today (kWh)",
+            "fr": "Aujourd’hui (kWh)",
+            "de": "Heute (kWh)",
+            "es": "Hoy (kWh)"
+          }
+        },
+        {
+          "key": "week_kwh",
+          "type": "number",
+          "label": {
+            "en": "This week (kWh)",
+            "fr": "Cette semaine (kWh)",
+            "de": "Diese Woche (kWh)",
+            "es": "Esta semana (kWh)"
+          }
+        },
+        {
+          "key": "month_kwh",
+          "type": "number",
+          "label": {
+            "en": "This month (kWh)",
+            "fr": "Ce mois (kWh)",
+            "de": "Diesen Monat (kWh)",
+            "es": "Este mes (kWh)"
+          }
+        },
+        {
+          "key": "month_returned_kwh",
+          "type": "number",
+          "label": {
+            "en": "Returned this month (kWh)",
+            "fr": "Renvoyé ce mois (kWh)",
+            "de": "Zurück diesen Monat (kWh)",
+            "es": "Devuelto este mes (kWh)"
+          }
+        },
+        {
+          "key": "index_kwh",
+          "type": "number",
+          "label": {
+            "en": "Energy index (kWh)",
+            "fr": "Index d’énergie (kWh)",
+            "de": "Energieindex (kWh)",
+            "es": "Índice de energía (kWh)"
+          }
+        }
+      ]
+    }
+  ]
+}

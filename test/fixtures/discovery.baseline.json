@@ -1,0 +1,756 @@
+[
+  {
+    "external_id": "ext:test-integration:switch:c4e7ae000001-switch1",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:switch:c4e7ae000001-switch1:state",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:switch:c4e7ae000001-switch1:power",
+        "category": "switch",
+        "type": "power",
+        "unit": "watt",
+        "min": 0,
+        "max": 10000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:switch:c4e7ae000001-switch1:voltage",
+        "category": "switch",
+        "type": "voltage",
+        "unit": "volt",
+        "min": 0,
+        "max": 400,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:switch:c4e7ae000001-switch1:current",
+        "category": "switch",
+        "type": "current",
+        "unit": "ampere",
+        "min": 0,
+        "max": 100,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:switch:c4e7ae000001-switch1:energy",
+        "category": "energy-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  },
+  {
+    "external_id": "ext:test-integration:cover:c4e7ae000002-cover1",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:cover:c4e7ae000002-cover1:state",
+        "category": "shutter",
+        "type": "state",
+        "unit": null,
+        "min": -1,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:cover:c4e7ae000002-cover1:position",
+        "category": "shutter",
+        "type": "position",
+        "unit": "percent",
+        "min": 0,
+        "max": 100,
+        "step": null,
+        "read_only": false
+      }
+    ]
+  },
+  {
+    "external_id": "ext:test-integration:meter:c4e7ae000003-em1",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em1:power",
+        "category": "energy-sensor",
+        "type": "power",
+        "unit": "watt",
+        "min": -100000,
+        "max": 100000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em1:voltage",
+        "category": "energy-sensor",
+        "type": "voltage",
+        "unit": "volt",
+        "min": 0,
+        "max": 400,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em1:current",
+        "category": "energy-sensor",
+        "type": "current",
+        "unit": "ampere",
+        "min": 0,
+        "max": 1000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em1:energy",
+        "category": "energy-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em1:returned",
+        "category": "energy-production-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  },
+  {
+    "external_id": "ext:test-integration:meter:c4e7ae000003-em2",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em2:power",
+        "category": "energy-sensor",
+        "type": "power",
+        "unit": "watt",
+        "min": -100000,
+        "max": 100000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em2:voltage",
+        "category": "energy-sensor",
+        "type": "voltage",
+        "unit": "volt",
+        "min": 0,
+        "max": 400,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em2:current",
+        "category": "energy-sensor",
+        "type": "current",
+        "unit": "ampere",
+        "min": 0,
+        "max": 1000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em2:energy",
+        "category": "energy-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em2:returned",
+        "category": "energy-production-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  },
+  {
+    "external_id": "ext:test-integration:meter:c4e7ae000003-em3",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em3:power",
+        "category": "energy-sensor",
+        "type": "power",
+        "unit": "watt",
+        "min": -100000,
+        "max": 100000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em3:voltage",
+        "category": "energy-sensor",
+        "type": "voltage",
+        "unit": "volt",
+        "min": 0,
+        "max": 400,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em3:current",
+        "category": "energy-sensor",
+        "type": "current",
+        "unit": "ampere",
+        "min": 0,
+        "max": 1000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em3:energy",
+        "category": "energy-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em3:returned",
+        "category": "energy-production-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  },
+  {
+    "external_id": "ext:test-integration:meter:c4e7ae000003-em4",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em4:power",
+        "category": "energy-sensor",
+        "type": "power",
+        "unit": "watt",
+        "min": -100000,
+        "max": 100000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em4:voltage",
+        "category": "energy-sensor",
+        "type": "voltage",
+        "unit": "volt",
+        "min": 0,
+        "max": 400,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em4:current",
+        "category": "energy-sensor",
+        "type": "current",
+        "unit": "ampere",
+        "min": 0,
+        "max": 1000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em4:energy",
+        "category": "energy-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em4:returned",
+        "category": "energy-production-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  },
+  {
+    "external_id": "ext:test-integration:meter:c4e7ae000003-em5",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em5:power",
+        "category": "energy-sensor",
+        "type": "power",
+        "unit": "watt",
+        "min": -100000,
+        "max": 100000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em5:voltage",
+        "category": "energy-sensor",
+        "type": "voltage",
+        "unit": "volt",
+        "min": 0,
+        "max": 400,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em5:current",
+        "category": "energy-sensor",
+        "type": "current",
+        "unit": "ampere",
+        "min": 0,
+        "max": 1000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em5:energy",
+        "category": "energy-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em5:returned",
+        "category": "energy-production-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  },
+  {
+    "external_id": "ext:test-integration:meter:c4e7ae000003-em6",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em6:power",
+        "category": "energy-sensor",
+        "type": "power",
+        "unit": "watt",
+        "min": -100000,
+        "max": 100000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em6:voltage",
+        "category": "energy-sensor",
+        "type": "voltage",
+        "unit": "volt",
+        "min": 0,
+        "max": 400,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em6:current",
+        "category": "energy-sensor",
+        "type": "current",
+        "unit": "ampere",
+        "min": 0,
+        "max": 1000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em6:energy",
+        "category": "energy-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:c4e7ae000003-em6:returned",
+        "category": "energy-production-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  },
+  {
+    "external_id": "ext:test-integration:meter:48e1e9000004-em1",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em1:power",
+        "category": "energy-sensor",
+        "type": "power",
+        "unit": "watt",
+        "min": -100000,
+        "max": 100000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em1:voltage",
+        "category": "energy-sensor",
+        "type": "voltage",
+        "unit": "volt",
+        "min": 0,
+        "max": 400,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em1:current",
+        "category": "energy-sensor",
+        "type": "current",
+        "unit": "ampere",
+        "min": 0,
+        "max": 1000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em1:energy",
+        "category": "energy-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em1:returned",
+        "category": "energy-production-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  },
+  {
+    "external_id": "ext:test-integration:meter:48e1e9000004-em2",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em2:power",
+        "category": "energy-sensor",
+        "type": "power",
+        "unit": "watt",
+        "min": -100000,
+        "max": 100000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em2:voltage",
+        "category": "energy-sensor",
+        "type": "voltage",
+        "unit": "volt",
+        "min": 0,
+        "max": 400,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em2:current",
+        "category": "energy-sensor",
+        "type": "current",
+        "unit": "ampere",
+        "min": 0,
+        "max": 1000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em2:energy",
+        "category": "energy-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em2:returned",
+        "category": "energy-production-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  },
+  {
+    "external_id": "ext:test-integration:meter:48e1e9000004-em3",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em3:power",
+        "category": "energy-sensor",
+        "type": "power",
+        "unit": "watt",
+        "min": -100000,
+        "max": 100000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em3:voltage",
+        "category": "energy-sensor",
+        "type": "voltage",
+        "unit": "volt",
+        "min": 0,
+        "max": 400,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em3:current",
+        "category": "energy-sensor",
+        "type": "current",
+        "unit": "ampere",
+        "min": 0,
+        "max": 1000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em3:energy",
+        "category": "energy-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em3:returned",
+        "category": "energy-production-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  },
+  {
+    "external_id": "ext:test-integration:meter:48e1e9000004-em4",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em4:power",
+        "category": "energy-sensor",
+        "type": "power",
+        "unit": "watt",
+        "min": -100000,
+        "max": 100000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em4:voltage",
+        "category": "energy-sensor",
+        "type": "voltage",
+        "unit": "volt",
+        "min": 0,
+        "max": 400,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em4:current",
+        "category": "energy-sensor",
+        "type": "current",
+        "unit": "ampere",
+        "min": 0,
+        "max": 1000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em4:energy",
+        "category": "energy-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em4:returned",
+        "category": "energy-production-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  },
+  {
+    "external_id": "ext:test-integration:meter:48e1e9000004-em5",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em5:power",
+        "category": "energy-sensor",
+        "type": "power",
+        "unit": "watt",
+        "min": -100000,
+        "max": 100000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em5:voltage",
+        "category": "energy-sensor",
+        "type": "voltage",
+        "unit": "volt",
+        "min": 0,
+        "max": 400,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em5:current",
+        "category": "energy-sensor",
+        "type": "current",
+        "unit": "ampere",
+        "min": 0,
+        "max": 1000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em5:energy",
+        "category": "energy-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em5:returned",
+        "category": "energy-production-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  },
+  {
+    "external_id": "ext:test-integration:meter:48e1e9000004-em6",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em6:power",
+        "category": "energy-sensor",
+        "type": "power",
+        "unit": "watt",
+        "min": -100000,
+        "max": 100000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em6:voltage",
+        "category": "energy-sensor",
+        "type": "voltage",
+        "unit": "volt",
+        "min": 0,
+        "max": 400,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em6:current",
+        "category": "energy-sensor",
+        "type": "current",
+        "unit": "ampere",
+        "min": 0,
+        "max": 1000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em6:energy",
+        "category": "energy-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:meter:48e1e9000004-em6:returned",
+        "category": "energy-production-sensor",
+        "type": "index",
+        "unit": "kilowatt-hour",
+        "min": 0,
+        "max": 10000000,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  }
+]
