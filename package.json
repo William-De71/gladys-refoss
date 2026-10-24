@@ -1,6 +1,6 @@
 {
   "name": "gladys-refoss",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "External Gladys Assistant integration for Refoss: smart plugs, relays, shutter modules and energy monitors, on the local network.",
   "homepage": "https://github.com/William-De71/gladys-refoss",
