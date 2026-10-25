@@ -12,7 +12,7 @@ Keine Verbindung zu Refoss.
 
 ## Voraussetzungen
 
-- Gladys Assistant 5.1.0 oder neuer.
+- Gladys Assistant 5.3.0 oder neuer.
 - Ihre Refoss-Geräte, eingerichtet in der Refoss-App und mit demselben Netzwerk wie Gladys verbunden.
 - Für die ersten Modelle (R10, EM06, EM16): eine feste IP-Adresse, eingerichtet als DHCP-Reservierung in Ihrem Router.
 - Falls Sie Ihre Geräte in der Refoss-App mit einem Passwort geschützt haben: dieses Passwort.

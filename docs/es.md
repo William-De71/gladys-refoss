@@ -12,7 +12,7 @@ Sin relación con Refoss.
 
 ## Requisitos
 
-- Gladys Assistant 5.1.0 o posterior.
+- Gladys Assistant 5.3.0 o posterior.
 - Tus dispositivos Refoss configurados en la app Refoss y conectados a la misma red que Gladys.
 - Para los primeros modelos (R10, EM06, EM16): una dirección IP fija, definida como reserva DHCP en tu router.
 - Si has protegido tus dispositivos con una contraseña en la app Refoss: esa contraseña.

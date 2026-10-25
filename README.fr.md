@@ -5,7 +5,7 @@
 [![Licence : Apache-2.0](https://img.shields.io/badge/licence-Apache--2.0-blue.svg)](LICENSE)
 [![Dernière version](https://img.shields.io/github/v/release/William-De71/gladys-refoss?sort=semver)](https://github.com/William-De71/gladys-refoss/releases)
 [![CI](https://img.shields.io/github/actions/workflow/status/William-De71/gladys-refoss/release.yml?branch=main&label=CI)](https://github.com/William-De71/gladys-refoss/actions/workflows/release.yml)
-[![Gladys](https://img.shields.io/badge/Gladys-%E2%89%A5%205.1.0-2f6fb5)](https://gladysassistant.com)
+[![Gladys](https://img.shields.io/badge/Gladys-%E2%89%A5%205.3.0-2f6fb5)](https://gladysassistant.com)
 
 ![Refoss pour Gladys Assistant](cover.jpg)
 
@@ -128,7 +128,7 @@ Exemples :
 
 ## Prérequis
 
-- Gladys Assistant **5.1.0 ou plus récent** (widgets de tableau de bord, déclencheurs et actions de scène des intégrations ; les instances plus anciennes ne peuvent pas installer l’intégration).
+- Gladys Assistant **5.3.0 ou plus récent** (widgets de tableau de bord, déclencheurs et actions de scène des intégrations, le catalogue mots-clés/pays de Gladys 5.3 ; les instances plus anciennes ne peuvent pas installer l’intégration).
 - Des appareils Refoss installés avec l’application Refoss, sur le même réseau que Gladys. Les premiers modèles (R10, EM06, EM16) ont besoin d’une adresse IP fixe (réservation DHCP dans votre box).
 
 ## Installation
