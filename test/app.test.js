@@ -395,7 +395,7 @@ test('widgets: valid contents, the hungriest first, one device with its curve', 
   const { fake, stop } = await setup();
   try {
     const power = ok(await fake.widgetGet('power', { language: 'fr' })).content;
-    assert.deepEqual(validateWidgetContent(power).errors ?? [], []);
+    assert.deepEqual(validateWidgetContent(power), []);
     const list = power.components.find((component) => component.type === 'card-list');
     assert.equal(list.items.length, 8);
     assert.equal(list.items[0].title, 'Four');
@@ -406,7 +406,7 @@ test('widgets: valid contents, the hungriest first, one device with its curve', 
     const oven = ok(
       await fake.widgetGet('device', { settings: { device: OVEN }, language: 'fr' }),
     ).content;
-    assert.deepEqual(validateWidgetContent(oven).errors ?? [], []);
+    assert.deepEqual(validateWidgetContent(oven), []);
     assert.deepEqual(
       oven.components.map((component) => component.type),
       ['text', 'value', 'value', 'value', 'chart', 'status'],
